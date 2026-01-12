@@ -8,7 +8,7 @@ export interface PromptResult {
     enableGraphQL: boolean;
     enableCache: boolean;
     hostMode: 'development' | 'production';
-    security: 'StaticWebApps' | 'Simulated';
+    security: 'StaticWebApps' | 'Simulator';
 }
 
 export async function ask(folderPath: string): Promise<PromptResult> {
@@ -101,7 +101,7 @@ async function askHostMode(): Promise<'production' | 'development'> {
     return (pick?.value ?? 'development') as 'production' | 'development';
 }
 
-async function askSecurityProvider(): Promise<'StaticWebApps' | 'Simulated'> {
+async function askSecurityProvider(): Promise<'StaticWebApps' | 'Simulator'> {
     const pick = await vscode.window.showQuickPick(
         [
             {
@@ -112,10 +112,10 @@ async function askSecurityProvider(): Promise<'StaticWebApps' | 'Simulated'> {
             {
                 label: 'Simulated',
                 description: 'Every call is treated as authenticated',
-                value: 'Simulated'
+                value: 'Simulator'
             }
         ],
         { placeHolder: 'Security Provider' }
     );
-    return (pick?.value ?? 'StaticWebApps') as 'StaticWebApps' | 'Simulated';
+    return (pick?.value ?? 'StaticWebApps') as 'StaticWebApps' | 'Simulator';
 }

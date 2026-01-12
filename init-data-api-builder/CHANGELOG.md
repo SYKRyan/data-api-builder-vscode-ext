@@ -6,4 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-- Initial release
+### Fixed
+
+- Fixed security provider setting authentication to 'Simulated' rather than 'Simulator' when not using 'Standard' authentication.
+
+### Added
+
+- v0.1.0 Initial release
